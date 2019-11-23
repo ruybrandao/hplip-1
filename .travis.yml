@@ -1,6 +1,6 @@
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y libcups2 cups libcups2-dev cups-bsd cups-client libcupsimage2-dev libdbus-1-dev ghostscript openssl libjpeg-turbo8-dev libsnmp-dev libtool libusb-1.0-0-dev wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus python-gobject python-dev python-notify python python-reportlab libsane libsane-dev sane-utils xsane
+  - sudo apt-get install -y libcups2 cups libcups2-dev cups-bsd cups-client libcupsimage2-dev libdbus-1-dev ghostscript openssl libjpeg-turbo8-dev libsnmp-dev libtool libusb-1.0-0-dev wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus python-gobject python-dev python-notify python python-reportlab libsane libsane-dev sane-utils xsane epm
 
 compiler:
   - gcc
