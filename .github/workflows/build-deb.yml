@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Dependencies
+      run: apt install --force-yes -y build-essential libcups2 libcups2-dev cups-bsd cups-client libcupsimage2 libcupsimage2-dev libdbus-1-dev gs-esp libssl-dev libjpeg62-dev libsnmp-dev libc6 libtool libusb-1.0.0-dev make wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus python-gobject python-dev python-notify python python-reportlab sane libsane-dev sane-utils xsane epm
+    - name: Configure Build
+      run: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld
+    - name: Run initial make
+      run: make
+    - name: Make the dist files
+      run: make dist
+    - name: Make the deb file
+      run: make deb
