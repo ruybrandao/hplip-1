@@ -7,20 +7,5 @@ compiler:
 
 jobs: 
   - stage: configure
-    name: "Configure makefile"
-    script: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld
-  - stage: make
-    name: "Do inital make"
-    script: make
-  - stage: make dist
-    name: "Make distribution"
-    script: make dist
-  - stage: make deb
-    name: "Make deb file"
-    script: make deb
-
-stages:
-  - configure
-  - make
-  - make dist
-  - make deb
+    name: "Configure, initial make, make dist package, make deb"
+    script: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld && make && make dist && make deb
