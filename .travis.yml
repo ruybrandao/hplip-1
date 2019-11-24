@@ -9,3 +9,10 @@ jobs:
   - stage: configure
     name: "Configure, initial make, make dist package, make deb"
     script: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld && make && make dist && make deb
+    deploy:
+      provider: releases
+      api_key: "tGDD0xWm1TdF8MpFprx4xg"
+      file: "hplip-3.19.11.tar.gz"
+      file: "hplipfull*.deb"
+      skip_cleanup: true
+      draft: true
