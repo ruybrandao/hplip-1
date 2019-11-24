@@ -31,7 +31,7 @@ jobs:
   script:  "./configure --enable-static --enable-dependency-tracking --enable-apparmor_build --with-gnu-dl && make && sudo make dist && sudo make deb
   deploy:
     provider: releases
-    file: hplip-3.19.11.tar.gz
+    file: hplipfull-3.19.11-linux-4.15-x86_64.deb
     skip_cleanup: true
     api_key:
       secure: 88tr1LrFNy0heDGhPQ7Q6lZGj6AI2uDOR8BFnol2h2Qr+RRmHUMeGugfe5bpakm0SASpAGPQieSmPS1cb/xpWICAN87Ljr1vWv/CY2pJnfvGIr7/cyVLVStQ$
