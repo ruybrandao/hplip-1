@@ -11,7 +11,7 @@ jobs:
     script: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld && make && make dist && make deb
     deploy:
       provider: releases
-      api_key: "tGDD0xWm1TdF8MpFprx4xg"
+      api_key: "07ae6fca941a03a7081cb7e847b714e5079d4dc7"
       file: "hplip-3.19.11.tar.gz"
       file: "hplipfull*.deb"
       skip_cleanup: true
