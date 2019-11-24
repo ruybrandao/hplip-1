@@ -5,17 +5,33 @@ before_install:
   wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus
   python-gobject python-dev python-notify python python-reportlab libsane libsane-dev
   sane-utils xsane epm
+
+before_deploy:
+  - git config --local user.name "azfirefighter"
+  - git config --local user.email "jake@lltodd.family"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+
 compiler:
 - gcc
+
 jobs:
-- stage: configure
-  name: Configure, initial make, make dist package, make deb
+- stage: Dist
+  name: Configure, initial make, make dist package
   script: "./configure --enable-static --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld
-    && make && sudo make dist && sudo make deb"
-deploy:
-  provider: releases
-  file: hplipfull*.deb
-  skip_cleanup: true
-  draft: true
-  api_key:
-    secure: 88tr1LrFNy0heDGhPQ7Q6lZGj6AI2uDOR8BFnol2h2Qr+RRmHUMeGugfe5bpakm0SASpAGPQieSmPS1cb/xpWICAN87Ljr1vWv/CY2pJnfvGIr7/cyVLVStQgznkwuT9fjX41CHphjLW6pDmfERaS/rtJYovVH9Y9gROMx0ik+tn7j/16p5vnDyNdipIpB9deR8WqUo4D64Q8c/2G5RcsuHyKklqvPn1yqjOyT9caYZWuqL9vQllVFj84QKt8oyVvgE+UxvAnfPdvjKiSeJB9E6YQF782b9XV+9GSLtBQepuDKHT6jJTA8F/CSjGYAvvvC+2/imE12OLy1XwEYCM626ahiENVTNhXZCP02JAb/ckEijUrhvD4dpBoU6oTvMtXAiwGcdtW4tSM7S2fGgK2Mel1DeOiWOlIv/IWM6mLWP8vvWeSn1fa9cccRh6E6uH/Bi/8RhwMHPZ/bGr+taotkw6FiLp5EzyWhioIXU6hb5MqMyakLaZxtGLDzBOtYwFNMb04XY/yriutIfY4WaafnqIxPjLXOwv7CavSe/nLLuytM0IhEUDrzooHI0AAyDrHrNKVtUriyjb0WbH54yYGpGgrAPb+RcmeMNQAYT+7rcAOsFrB6+tTXzTZUFrcWA7BBPHfby9PPQhbmSaBqFFZ33IVhc99KDmGuFgga947yc=
+    && make && sudo make dist"
+  deploy:
+    provider: releases
+    file: hplip-3.19.11.tar.gz
+    skip_cleanup: true
+    api_key:
+      secure: 88tr1LrFNy0heDGhPQ7Q6lZGj6AI2uDOR8BFnol2h2Qr+RRmHUMeGugfe5bpakm0SASpAGPQieSmPS1cb/xpWICAN87Ljr1vWv/CY2pJnfvGIr7/cyVLVStQgz$
+- stage: Deb
+  name: Make deb file
+  script:  "./configure --enable-static --enable-dependency-tracking --enable-apparmor_build --with-gnu-dl && make && sudo make dist && sudo make deb
+  deploy:
+    provider: releases
+    file: hplip-3.19.11.tar.gz
+    skip_cleanup: true
+    api_key:
+      secure: 88tr1LrFNy0heDGhPQ7Q6lZGj6AI2uDOR8BFnol2h2Qr+RRmHUMeGugfe5bpakm0SASpAGPQieSmPS1cb/xpWICAN87Ljr1vWv/CY2pJnfvGIr7/cyVLVStQ$
