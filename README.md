@@ -1,4 +1,4 @@
-# HPLIP 3.19.11
+# HPLIP 3.19.11 ![Travis Build Status](https://img.shields.io/travis/ll-todd-family/hplip?style=for-the-badge)  ![GitHub repo size](https://img.shields.io/github/repo-size/ll-todd-family/hplip?style=for-the-badge)  ![GitHub issues](https://img.shields.io/github/issues-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub stars](https://img.shields.io/github/stars/ll-todd-family/hplip?style=for-the-badge)  ![GitHub watchers](https://img.shields.io/github/watchers/ll-todd-family/hplip?style=for-the-badge)  ![GitHub last commit](https://img.shields.io/github/last-commit/ll-todd-family/hplip?style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/ll-todd-family/hplip?style=for-the-badge)
 
 ## HP Linux Imaging and Printing
 HP's [original sources](https://sourceforge.net/projects/hplip/files/hplip/3.19.11/hplip-3.19.11.tar.gz/download).  

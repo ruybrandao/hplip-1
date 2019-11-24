@@ -1,20 +1,22 @@
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y libcups2 cups libcups2-dev cups-bsd cups-client libcupsimage2-dev libdbus-1-dev ghostscript openssl libjpeg-turbo8-dev libsnmp-dev libtool libusb-1.0-0-dev wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus python-gobject python-dev python-notify python python-reportlab libsane libsane-dev sane-utils xsane epm
-
+- sudo apt-get update
+- sudo apt-get install -y libcups2 cups libcups2-dev cups-bsd cups-client libcupsimage2-dev
+  libdbus-1-dev ghostscript openssl libjpeg-turbo8-dev libsnmp-dev libtool libusb-1.0-0-dev
+  wget python-imaging policykit-1 policykit-1-gnome python-qt4 python-qt4-dbus python-dbus
+  python-gobject python-dev python-notify python python-reportlab libsane libsane-dev
+  sane-utils xsane epm
 compiler:
-  - gcc
-
-jobs: 
-  - stage: configure
-    name: "Configure, initial make, make dist package, make deb"
-    script: ./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld && make && make dist && make deb
-   
+- gcc
+jobs:
+- stage: configure
+  name: Configure, initial make, make dist package, make deb
+  script: "./configure --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld
+    && make && make dist && make deb"
 deploy:
-      provider: releases
-      user: "azfirefighter"
-      api_key: c99f117b9ffaef4f10337884cd5f57e2ce9e79df
-      file: "hplip-3.19.11.tar.gz"
-      file: "hplipfull*.deb"
-      skip_cleanup: true
-      draft: true
+  provider: releases
+  file: hplipfull*.deb
+  skip_cleanup: true
+  draft: true
+  user: azfirefighter
+  password:
+    secure: pBghtCBJvhrajBBAG1lTXDKZROJ/7/MxPfUkW8LQNTYDXi13Q86lItw2U7baxUxeMxAKL/xOeEujoojlHGsaSOsHNEAYl2fdgfXvvzZeYF1S3mCo6BCHjj8UextGFWMEZY6SmtZgH49IbYZObwtNMPsfRuY6+zr+TWgr1f56s38WcuS4TBKw+a4AcoAhT8m2/W0lTrsOs3ZmI1Iz687j40FFMHExVAmKVQuR3yZF9gSMg4VEVi77c9lWtTlConKbauVtdFSUk/RUsl73s8uhfYFqIW19HJyGBD0i1j3iMLTvsLeSfUvTZscJZRVobXzFvmViBeLtmcS7BdPjcKbRPN7PNvu901Q4GtqkDGBA9rcRyq2U2bRUR3pOfC2WM4eMw8HyaWTpRf53PNt/REHu1kZDb6h6yu9gNOhOBUPF60DFRBzMlUc96QWSbmVqgh0rjLQkLPu+cvpeY1tFzA7effSNcqhjW32qqc6E4pkMkosyRR6ONwSmgxke/FH62/KuYVlNJDyrjlEJDAm7nHtKMhQD9Nzv5UjHlJrQUIYe2LAQZBNpEfiS/yPaaw6aklbkumZi+ig/8aJW7ErvKkeRp4MD6+4QPj7GtywlJFDx2+P9s2euNUFk9S4xW/+0rQUddbw+8EqF6tRdAz8HRW9q7wJh1rFDOiTo3Lv5Z6NNKPI=
