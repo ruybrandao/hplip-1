@@ -1,4 +1,4 @@
-![HPLIP Graphic](/hplip/master/docs/images/desktop_hpLIP_0.png)  
+![HPLIP Graphic](https://repository-images.githubusercontent.com/223663034/807cb980-0e33-11ea-9d3e-2ec5bcf80451)  
 # HPLIP 3.19.11  
 ![Travis Build Status](https://img.shields.io/travis/ll-todd-family/hplip?style=for-the-badge)  ![GitHub last commit](https://img.shields.io/github/last-commit/ll-todd-family/hplip?style=for-the-badge)  ![GitHub repo size](https://img.shields.io/github/repo-size/ll-todd-family/hplip?style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/ll-todd-family/hplip?style=for-the-badge)  
 ![GitHub issues](https://img.shields.io/github/issues-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub stars](https://img.shields.io/github/stars/ll-todd-family/hplip?style=for-the-badge)  ![GitHub watchers](https://img.shields.io/github/watchers/ll-todd-family/hplip?style=for-the-badge)  
