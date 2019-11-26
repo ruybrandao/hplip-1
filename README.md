@@ -1,7 +1,8 @@
 ![HPLIP Graphic](https://repository-images.githubusercontent.com/223663034/807cb980-0e33-11ea-9d3e-2ec5bcf80451)  
 # HPLIP 3.19.11  
-![Travis Build Status](https://img.shields.io/travis/ll-todd-family/hplip?style=for-the-badge)  ![GitHub last commit](https://img.shields.io/github/last-commit/ll-todd-family/hplip?style=for-the-badge)  ![GitHub repo size](https://img.shields.io/github/repo-size/ll-todd-family/hplip?style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/ll-todd-family/hplip?style=for-the-badge)  
-![GitHub issues](https://img.shields.io/github/issues-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/ll-todd-family/hplip?style=for-the-badge)  ![GitHub stars](https://img.shields.io/github/stars/ll-todd-family/hplip?style=for-the-badge)  ![GitHub watchers](https://img.shields.io/github/watchers/ll-todd-family/hplip?style=for-the-badge)  
+![Travis Build Status](https://img.shields.io/travis/ll-todd-family/hplip?style=for-the-badge)  ![GitHub last commit](https://img.shields.io/github/last-commit/ll-todd-family/hplip?style=for-the-badge)  ![GitHub repo size](https://img.shields.io/github/repo-size/ll-todd-family/hplip?style=for-the-badge)  
+
+[HPLIP Documentation](https://github.com/ll-todd-family/hplip/docs/index.html)  
 
 ## HP Linux Imaging and Printing
 HP's [original sources](https://sourceforge.net/projects/hplip/files/hplip/3.19.11/hplip-3.19.11.tar.gz/download).  
@@ -35,19 +36,22 @@ The version of HPLIP that is in the Debian 10.1 repository will not work on our 
 
 **Configure HPLIP for Installation**
 The following configuration options are what worked for us.  Your milage may vary.
-   - (As normal user): ./configure --enable-static --enable-depenedency-tracking --enable-apparmor_build --with-gnu-ld
+   - (As normal user): ./configure --enable-static --enable-dependency-tracking --enable-apparmor_build --with-gnu-ld
    - You may or may not see configuration warnings.  Don't sweat it; as long as there are no error messages, it's fine.
    - (As normal user): make
    - **sudo** make dist
-     - This will leave you with a file name hplip-3.19.11.tar.gz
+     - This will leave you with a file named hplip-3.19.11.tar.gz
      - If you want to try to install with this file, move it to / and then run **sudo** tar -zxf hplip-3.19.11.tar.gz
-     - ***BUT WAIT!  THERE'S AN EASIER OPTION!***
-   - The Makefile has an option to build a deb package!  If you want to use this option, **be sure to install epm**
-     - sudo apt install epm -y
+     - You also have the option of using "**sudo** make install"
+       - The downside to either of these options is trying to remove them once they're installed.
+
+***BUT WAIT!  THERE'S A BETTER INSTALL OPTION!***
+   - The Makefile has an option to build a deb package!  If you want to use this option, **be sure to install the epm package**
+     - **sudo** apt install epm -y
    - Now make the deb: **sudo** make deb
      - For the deb to work properly, you **must either build it as root or use sudo**!
      - Trying to install the deb built as a regular user failed for us; installing after building with sudo worked fine
-     - Install the deb: sudo dpkg --install hplipfull*.deb
+     - Install the deb: **sudo** dpkg --install hplipfull*.deb
      
 # Finishing After Install
 * Run hp-setup to configure the suite
